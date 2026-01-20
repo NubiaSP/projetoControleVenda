@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using ProjetoControleVendas.br.com.projeto.conexao;
 using ProjetoControleVendas.br.com.projeto.model;
 using System;
@@ -11,34 +12,37 @@ using System.Windows.Forms;
 
 namespace ProjetoControleVendas.br.com.projeto.dao
 {
-    public class ClienteDao
+    internal class funcionarioDao
     {
+
         private MySqlConnection conexao;
 
-        public ClienteDao()
+        public funcionarioDao()
         {
             this.conexao = new ConnectionFactory().GetConnection();
         }
 
-
-        #region CadastrarCliente
-        public void cadastrarCliente(cliente obj)
+        #region CadastrarFuncionario
+        public void cadastrarFincionario(Funcionario obj)
         {
             try
             {
-                // 1 passo - defineir o cmd sql - insert into
+                //1 passo - defineir o cmd sql - insert into
 
-                string sql = @"INSERT INTO bdvendas.tb_clientes (nome,rg,cpf,email,telefone,celular,
+                string sql = @"INSERT INTO tb_funcionarios (nome,rg,cpf,email,senha,cargo,nivel_acesso,telefone,celular,
                                 cep,endereco,numero,complemento,bairro,cidade,estado)
-                                VALUES(@nome, @rg, @cpf, @email, @telefone, @celular,
+                                VALUES(@nome, @rg, @cpf, @email,@senha,@cargo,@nivel_acesso,@telefone, @celular,
                                 @cep, @endereco, @numero, @complemento, @bairro, @cidade, @estado)";
-
+               
                 //segundo paasso e organizar o cmd sql
-                MySqlCommand executacmd = new MySqlCommand(sql,conexao);
-                executacmd.Parameters.AddWithValue("@nome",obj.nome);
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@nome", obj.nome);
                 executacmd.Parameters.AddWithValue("@rg", obj.rg);
                 executacmd.Parameters.AddWithValue("@cpf", obj.cpf);
                 executacmd.Parameters.AddWithValue("@email", obj.email);
+                executacmd.Parameters.AddWithValue("@senha", obj.senha);
+                executacmd.Parameters.AddWithValue("@cargo", obj.cargo);
+                executacmd.Parameters.AddWithValue("@nivel_acesso", obj.nivelAcesso);
                 executacmd.Parameters.AddWithValue("@telefone", obj.telefone);
                 executacmd.Parameters.AddWithValue("@celular", obj.celular);
                 executacmd.Parameters.AddWithValue("@cep", obj.cep);
@@ -54,32 +58,30 @@ namespace ProjetoControleVendas.br.com.projeto.dao
                 conexao.Open();
                 executacmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente cadastrado com sucesso!");
+                MessageBox.Show("Funciobario cadastrado com sucesso!");
                 conexao.Close();
+
             }
             catch (Exception erro)
             {
-                MessageBox.Show($"Aconteceu um erro: {erro}");
-              
+                MessageBox.Show($"Aconteceu um erro{erro}");  
+                throw;
             }
-
         }
+
         #endregion
 
 
-
-
-
-        #region ListarCliente
-        public DataTable listaCliente()
+        #region ListarFuncionario
+        public DataTable listaFuncionario()
         {
             try
             {
                 // 1 passo  -  criar o dataTable e o comando Sql
 
-                DataTable tabelaCliente = new DataTable();
+                DataTable tabelFuncionario = new DataTable();
 
-                string sql = "SELECT * FROM bdvendas.tb_clientes;";
+                string sql = "SELECT * FROM bdvendas.tb_funcionarios;";
 
                 //2 passo - organizar o comando sql e execultar
 
@@ -91,32 +93,30 @@ namespace ProjetoControleVendas.br.com.projeto.dao
                 // 3 passo criar o mysqldataapter para preencher na datatable
 
                 MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
-                da.Fill(tabelaCliente);
+                da.Fill(tabelFuncionario);
 
                 conexao.Close();
-                return tabelaCliente;
+                return tabelFuncionario;
             }
             catch (Exception erro)
             {
                 MessageBox.Show($"Erro ao execultar o comando SQL:{erro}");
-               
+
                 return null;
-            } 
-            
+            }
+
         }
         #endregion
 
 
-
-
-        #region AlterarCliente
-        public void AlterarCliente(cliente obj)
+        #region AlterarFuncionario
+        public void AlterarFuncionario(Funcionario obj)
         {
             try
             {
                 // 1 passo - defineir o cmd sql - insert into
 
-                string sql = @"UPDATE tb_clientes SET nome=@nome,rg=@rg,cpf=@cpf,email=@email,telefone=@telefone,celular=@celular,cep=@cep,
+                string sql = @"UPDATE tb_funcionarios SET nome=@nome,rg=@rg,cpf=@cpf,email=@email,senha=@senha,cargo=@cargo,nivel_acesso=@nivel_acesso,telefone=@telefone,celular=@celular,cep=@cep,
                                 endereco=@endereco,numero=@numero,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado
                                  WHERE id=@id";
 
@@ -126,6 +126,9 @@ namespace ProjetoControleVendas.br.com.projeto.dao
                 executacmd.Parameters.AddWithValue("@rg", obj.rg);
                 executacmd.Parameters.AddWithValue("@cpf", obj.cpf);
                 executacmd.Parameters.AddWithValue("@email", obj.email);
+                executacmd.Parameters.AddWithValue("@senha", obj.senha);
+                executacmd.Parameters.AddWithValue("@cargo", obj.cargo);
+                executacmd.Parameters.AddWithValue("@nivel_acesso", obj.nivelAcesso);
                 executacmd.Parameters.AddWithValue("@telefone", obj.telefone);
                 executacmd.Parameters.AddWithValue("@celular", obj.celular);
                 executacmd.Parameters.AddWithValue("@cep", obj.cep);
@@ -142,7 +145,7 @@ namespace ProjetoControleVendas.br.com.projeto.dao
                 conexao.Open();
                 executacmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente Alterado com sucesso!");
+                MessageBox.Show("Funcionario Alterado com sucesso!");
                 conexao.Close();
             }
             catch (Exception erro)
@@ -156,21 +159,18 @@ namespace ProjetoControleVendas.br.com.projeto.dao
         #endregion
 
 
-
-
-
-        #region ExcluirCliente
-        public void ExcluirCliente(cliente obj)
+        #region ExcluirFuncionario
+        public void ExcluirFuncionarios(Funcionario obj)
         {
             try
             {
                 // 1 passo - defineir o cmd sql - insert into
 
-                string sql = @"DELETE FROM tb_clientes WHERE id = @id";
+                string sql = @"DELETE FROM tb_funcionarios WHERE id = @id";
 
                 //segundo paasso e organizar o cmd sql
                 MySqlCommand executacmd = new MySqlCommand(sql, conexao);
-         
+
                 executacmd.Parameters.AddWithValue("@id", obj.codigo);
 
                 // 3 passo - aabri a conexao e execultar ocomando sql
@@ -178,7 +178,7 @@ namespace ProjetoControleVendas.br.com.projeto.dao
                 conexao.Open();
                 executacmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente Excluido com sucesso!");
+                MessageBox.Show("Funcionario Excluido com sucesso!");
 
                 conexao.Close();
             }
@@ -193,19 +193,16 @@ namespace ProjetoControleVendas.br.com.projeto.dao
         #endregion
 
 
-
-
-
-        #region BuscarClientePorNome
-        public DataTable BuscarClientePorNome(string nome)
+        #region BuscarFuncionarioPorNome
+        public DataTable BuscarFuncionarioPorNome(string nome)
         {
             try
             {
                 // 1 passo  -  criar o dataTable e o comando Sql
 
-                DataTable tabelaCliente = new DataTable();
+                DataTable tabelaFuncionario = new DataTable();
 
-                string sql = "SELECT * FROM bdvendas.tb_clientes WHERE nome = @nome;";
+                string sql = "SELECT * FROM bdvendas.tb_funcionarios WHERE nome = @nome;";
 
                 //2 passo - organizar o comando sql e execultar
 
@@ -218,15 +215,15 @@ namespace ProjetoControleVendas.br.com.projeto.dao
                 // 3 passo criar o mysqldataapter para preencher na datatable
 
                 MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
-                da.Fill(tabelaCliente);
+                da.Fill(tabelaFuncionario);
 
                 conexao.Close();
-                return tabelaCliente;
+                return tabelaFuncionario;
             }
             catch (Exception erro)
             {
                 MessageBox.Show($"Erro ao execultar o comando SQL:{erro}");
-                
+
                 return null;
             }
 
@@ -236,17 +233,16 @@ namespace ProjetoControleVendas.br.com.projeto.dao
 
 
 
-
-        #region ListarClientePorNome
-        public DataTable ListarClientePorNome(string nome)
+        #region ListarFuncionarioPorNome
+        public DataTable ListarFuncionarioPorNome(string nome)
         {
             try
             {
                 // 1 passo  -  criar o dataTable e o comando Sql
 
-                DataTable tabelaCliente = new DataTable();
+                DataTable tabelaFuncionario = new DataTable();
 
-                string sql = "SELECT * FROM bdvendas.tb_clientes WHERE nome LIKE @nome;";
+                string sql = "SELECT * FROM bdvendas.tb_funcionarios WHERE nome LIKE @nome;";
 
                 //2 passo - organizar o comando sql e execultar
 
@@ -259,10 +255,10 @@ namespace ProjetoControleVendas.br.com.projeto.dao
                 // 3 passo criar o mysqldataapter para preencher na datatable
 
                 MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
-                da.Fill(tabelaCliente);
+                da.Fill(tabelaFuncionario);
 
                 conexao.Close();
-                return tabelaCliente;
+                return tabelaFuncionario;
             }
             catch (Exception erro)
             {
@@ -274,7 +270,9 @@ namespace ProjetoControleVendas.br.com.projeto.dao
         }
 
         #endregion
+
 
 
     }
+
 }

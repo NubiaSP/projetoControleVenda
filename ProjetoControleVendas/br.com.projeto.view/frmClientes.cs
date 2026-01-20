@@ -127,7 +127,7 @@ namespace ProjetoControleVendas.br.com.projeto.view
 
             dgvPesqCliente.DataSource = dao.BuscarClientePorNome(nome);
 
-            if(dgvPesqCliente.Rows.Count == 0)
+            if(dgvPesqCliente.Rows.Count == 0 || txtPesquisa.Text == string.Empty)
             {
                 dgvPesqCliente.DataSource = dao.listaCliente();
                     
@@ -174,7 +174,7 @@ namespace ProjetoControleVendas.br.com.projeto.view
 
         private void btNovo_Click(object sender, EventArgs e)
         {
-            new Helpers().LiparTela(this); 
+           new Helpers().LiparTela(this); 
         }
     }
 }
