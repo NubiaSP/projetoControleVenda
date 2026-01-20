@@ -149,5 +149,32 @@ namespace ProjetoControleVendas.br.com.projeto.view
             dgvPesqCliente.DataSource = dao.ListarClientePorNome(nome);
 
         }
+
+        private void btnCepPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string cep = txtCep.Text;
+                string xml = "https://viacep.com.br/ws/"+cep+"/xml/";
+
+                DataSet dados = new DataSet();
+
+                dados.ReadXml(xml);
+                txtEndereco.Text = dados.Tables[0].Rows[0]["logradouro"].ToString();
+                txtBairro.Text = dados.Tables[0].Rows[0]["bairro"].ToString();
+                txtCidade.Text = dados.Tables[0].Rows[0]["localidade"].ToString();
+                cbUf.Text = dados.Tables[0].Rows[0]["uf"].ToString();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Endereço nao encontrado, Por favor digite manualmente");
+            }
+        }
+
+        private void btNovo_Click(object sender, EventArgs e)
+        {
+            new Helpers().LiparTela(this); 
+        }
     }
 }

@@ -69,6 +69,7 @@
             this.btNovo = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
             this.btEditar = new System.Windows.Forms.Button();
+            this.btnCepPesquisar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.tabPgDadosPessoais.SuspendLayout();
@@ -109,6 +110,7 @@
             // 
             // tabPgDadosPessoais
             // 
+            this.tabPgDadosPessoais.Controls.Add(this.btnCepPesquisar);
             this.tabPgDadosPessoais.Controls.Add(this.txtComplemento);
             this.tabPgDadosPessoais.Controls.Add(this.label16);
             this.tabPgDadosPessoais.Controls.Add(this.cbUf);
@@ -214,7 +216,7 @@
             // txtBairro
             // 
             this.txtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBairro.Location = new System.Drawing.Point(117, 305);
+            this.txtBairro.Location = new System.Drawing.Point(103, 302);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(257, 28);
             this.txtBairro.TabIndex = 23;
@@ -234,7 +236,7 @@
             // txtCidade
             // 
             this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCidade.Location = new System.Drawing.Point(387, 252);
+            this.txtCidade.Location = new System.Drawing.Point(506, 249);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(348, 28);
             this.txtCidade.TabIndex = 21;
@@ -244,7 +246,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label12.Location = new System.Drawing.Point(309, 258);
+            this.label12.Location = new System.Drawing.Point(421, 252);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 22);
             this.label12.TabIndex = 20;
@@ -272,16 +274,16 @@
             // txtCep
             // 
             this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCep.Location = new System.Drawing.Point(117, 248);
+            this.txtCep.Location = new System.Drawing.Point(103, 252);
             this.txtCep.Mask = "#####-###";
             this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(178, 28);
+            this.txtCep.Size = new System.Drawing.Size(142, 28);
             this.txtCep.TabIndex = 17;
             // 
             // txtEndereco
             // 
             this.txtEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEndereco.Location = new System.Drawing.Point(117, 198);
+            this.txtEndereco.Location = new System.Drawing.Point(103, 198);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(382, 28);
             this.txtEndereco.TabIndex = 16;
@@ -298,7 +300,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(117, 146);
+            this.txtEmail.Location = new System.Drawing.Point(103, 146);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(382, 28);
             this.txtEmail.TabIndex = 14;
@@ -324,7 +326,7 @@
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(117, 88);
+            this.txtNome.Location = new System.Drawing.Point(103, 88);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(382, 28);
             this.txtNome.TabIndex = 11;
@@ -431,7 +433,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(117, 37);
+            this.txtCodigo.Location = new System.Drawing.Point(103, 37);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(106, 28);
             this.txtCodigo.TabIndex = 1;
@@ -439,7 +441,7 @@
             // txtCelular
             // 
             this.txtCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(117, 368);
+            this.txtCelular.Location = new System.Drawing.Point(103, 368);
             this.txtCelular.Mask = "(##)#####-####";
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(178, 28);
@@ -531,6 +533,7 @@
             this.btNovo.TabIndex = 3;
             this.btNovo.Text = "Novo";
             this.btNovo.UseVisualStyleBackColor = false;
+            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
             // btExcluir
             // 
@@ -557,6 +560,19 @@
             this.btEditar.Text = "Editar";
             this.btEditar.UseVisualStyleBackColor = false;
             this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
+            // 
+            // btnCepPesquisar
+            // 
+            this.btnCepPesquisar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnCepPesquisar.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCepPesquisar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnCepPesquisar.Location = new System.Drawing.Point(261, 252);
+            this.btnCepPesquisar.Name = "btnCepPesquisar";
+            this.btnCepPesquisar.Size = new System.Drawing.Size(128, 33);
+            this.btnCepPesquisar.TabIndex = 6;
+            this.btnCepPesquisar.Text = "Pesquisar";
+            this.btnCepPesquisar.UseVisualStyleBackColor = false;
+            this.btnCepPesquisar.Click += new System.EventHandler(this.btnCepPesquisar_Click);
             // 
             // frmClientes
             // 
@@ -628,5 +644,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtComplemento;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnCepPesquisar;
     }
 }
