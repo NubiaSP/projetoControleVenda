@@ -30,8 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabCliente = new System.Windows.Forms.TabControl();
+            this.tabPgDadosPessoais = new System.Windows.Forms.TabPage();
+            this.txtComplemento = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.cbUf = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtBairro = new System.Windows.Forms.TextBox();
@@ -58,21 +60,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtCelular = new System.Windows.Forms.MaskedTextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPgConsulta = new System.Windows.Forms.TabPage();
+            this.dgvPesqCliente = new System.Windows.Forms.DataGridView();
+            this.btPesquisar = new System.Windows.Forms.Button();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.btSalvar = new System.Windows.Forms.Button();
             this.btNovo = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
             this.btEditar = new System.Windows.Forms.Button();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btPesquisar = new System.Windows.Forms.Button();
-            this.dgvPesqCliente = new System.Windows.Forms.DataGridView();
-            this.txtComplemento = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabCliente.SuspendLayout();
+            this.tabPgDadosPessoais.SuspendLayout();
+            this.tabPgConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesqCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +83,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(880, 100);
+            this.panel1.Size = new System.Drawing.Size(917, 100);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -97,53 +97,72 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Cadastro de Cliente";
             // 
-            // tabControl1
+            // tabCliente
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(13, 106);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(863, 449);
-            this.tabControl1.TabIndex = 1;
+            this.tabCliente.Controls.Add(this.tabPgDadosPessoais);
+            this.tabCliente.Controls.Add(this.tabPgConsulta);
+            this.tabCliente.Location = new System.Drawing.Point(13, 106);
+            this.tabCliente.Name = "tabCliente";
+            this.tabCliente.SelectedIndex = 0;
+            this.tabCliente.Size = new System.Drawing.Size(892, 449);
+            this.tabCliente.TabIndex = 1;
             // 
-            // tabPage1
+            // tabPgDadosPessoais
             // 
-            this.tabPage1.Controls.Add(this.txtComplemento);
-            this.tabPage1.Controls.Add(this.label16);
-            this.tabPage1.Controls.Add(this.cbUf);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.txtBairro);
-            this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.txtCidade);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.txtNumero);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.txtCep);
-            this.tabPage1.Controls.Add(this.txtEndereco);
-            this.tabPage1.Controls.Add(this.txtTelefone);
-            this.tabPage1.Controls.Add(this.txtEmail);
-            this.tabPage1.Controls.Add(this.txtRg);
-            this.tabPage1.Controls.Add(this.txtCpf);
-            this.tabPage1.Controls.Add(this.txtNome);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.txtCodigo);
-            this.tabPage1.Controls.Add(this.txtCelular);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(855, 420);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Dados Pessoais";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPgDadosPessoais.Controls.Add(this.txtComplemento);
+            this.tabPgDadosPessoais.Controls.Add(this.label16);
+            this.tabPgDadosPessoais.Controls.Add(this.cbUf);
+            this.tabPgDadosPessoais.Controls.Add(this.label14);
+            this.tabPgDadosPessoais.Controls.Add(this.txtBairro);
+            this.tabPgDadosPessoais.Controls.Add(this.label13);
+            this.tabPgDadosPessoais.Controls.Add(this.txtCidade);
+            this.tabPgDadosPessoais.Controls.Add(this.label12);
+            this.tabPgDadosPessoais.Controls.Add(this.txtNumero);
+            this.tabPgDadosPessoais.Controls.Add(this.label11);
+            this.tabPgDadosPessoais.Controls.Add(this.txtCep);
+            this.tabPgDadosPessoais.Controls.Add(this.txtEndereco);
+            this.tabPgDadosPessoais.Controls.Add(this.txtTelefone);
+            this.tabPgDadosPessoais.Controls.Add(this.txtEmail);
+            this.tabPgDadosPessoais.Controls.Add(this.txtRg);
+            this.tabPgDadosPessoais.Controls.Add(this.txtCpf);
+            this.tabPgDadosPessoais.Controls.Add(this.txtNome);
+            this.tabPgDadosPessoais.Controls.Add(this.label10);
+            this.tabPgDadosPessoais.Controls.Add(this.label9);
+            this.tabPgDadosPessoais.Controls.Add(this.label8);
+            this.tabPgDadosPessoais.Controls.Add(this.label7);
+            this.tabPgDadosPessoais.Controls.Add(this.label6);
+            this.tabPgDadosPessoais.Controls.Add(this.label5);
+            this.tabPgDadosPessoais.Controls.Add(this.label4);
+            this.tabPgDadosPessoais.Controls.Add(this.label3);
+            this.tabPgDadosPessoais.Controls.Add(this.label2);
+            this.tabPgDadosPessoais.Controls.Add(this.txtCodigo);
+            this.tabPgDadosPessoais.Controls.Add(this.txtCelular);
+            this.tabPgDadosPessoais.Location = new System.Drawing.Point(4, 25);
+            this.tabPgDadosPessoais.Name = "tabPgDadosPessoais";
+            this.tabPgDadosPessoais.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPgDadosPessoais.Size = new System.Drawing.Size(884, 420);
+            this.tabPgDadosPessoais.TabIndex = 0;
+            this.tabPgDadosPessoais.Text = "Dados Pessoais";
+            this.tabPgDadosPessoais.UseVisualStyleBackColor = true;
+            // 
+            // txtComplemento
+            // 
+            this.txtComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComplemento.Location = new System.Drawing.Point(692, 305);
+            this.txtComplemento.Name = "txtComplemento";
+            this.txtComplemento.Size = new System.Drawing.Size(162, 28);
+            this.txtComplemento.TabIndex = 27;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label16.Location = new System.Drawing.Point(557, 310);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(120, 22);
+            this.label16.TabIndex = 26;
+            this.label16.Text = "Complemento";
             // 
             // cbUf
             // 
@@ -426,19 +445,67 @@
             this.txtCelular.Size = new System.Drawing.Size(178, 28);
             this.txtCelular.TabIndex = 0;
             // 
-            // tabPage2
+            // tabPgConsulta
             // 
-            this.tabPage2.Controls.Add(this.dgvPesqCliente);
-            this.tabPage2.Controls.Add(this.btPesquisar);
-            this.tabPage2.Controls.Add(this.txtPesquisa);
-            this.tabPage2.Controls.Add(this.label15);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(855, 420);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Consulta";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPgConsulta.Controls.Add(this.dgvPesqCliente);
+            this.tabPgConsulta.Controls.Add(this.btPesquisar);
+            this.tabPgConsulta.Controls.Add(this.txtPesquisa);
+            this.tabPgConsulta.Controls.Add(this.label15);
+            this.tabPgConsulta.Location = new System.Drawing.Point(4, 25);
+            this.tabPgConsulta.Name = "tabPgConsulta";
+            this.tabPgConsulta.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPgConsulta.Size = new System.Drawing.Size(884, 420);
+            this.tabPgConsulta.TabIndex = 1;
+            this.tabPgConsulta.Text = "Consulta";
+            this.tabPgConsulta.UseVisualStyleBackColor = true;
+            // 
+            // dgvPesqCliente
+            // 
+            this.dgvPesqCliente.AllowUserToAddRows = false;
+            this.dgvPesqCliente.AllowUserToDeleteRows = false;
+            this.dgvPesqCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPesqCliente.Location = new System.Drawing.Point(6, 100);
+            this.dgvPesqCliente.Name = "dgvPesqCliente";
+            this.dgvPesqCliente.ReadOnly = true;
+            this.dgvPesqCliente.RowHeadersWidth = 51;
+            this.dgvPesqCliente.RowTemplate.Height = 24;
+            this.dgvPesqCliente.Size = new System.Drawing.Size(843, 298);
+            this.dgvPesqCliente.TabIndex = 14;
+            this.dgvPesqCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPesqCliente_CellClick);
+            // 
+            // btPesquisar
+            // 
+            this.btPesquisar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btPesquisar.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPesquisar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btPesquisar.Location = new System.Drawing.Point(498, 35);
+            this.btPesquisar.Name = "btPesquisar";
+            this.btPesquisar.Size = new System.Drawing.Size(154, 42);
+            this.btPesquisar.TabIndex = 6;
+            this.btPesquisar.Text = "Pesquisar";
+            this.btPesquisar.UseVisualStyleBackColor = false;
+            this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesquisa.Location = new System.Drawing.Point(86, 41);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(382, 28);
+            this.txtPesquisa.TabIndex = 13;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
+            this.txtPesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisa_KeyPress);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label15.Location = new System.Drawing.Point(18, 44);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(62, 22);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Nome:";
             // 
             // btSalvar
             // 
@@ -476,6 +543,7 @@
             this.btExcluir.TabIndex = 4;
             this.btExcluir.Text = "Excluir";
             this.btExcluir.UseVisualStyleBackColor = false;
+            this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
             // 
             // btEditar
             // 
@@ -488,80 +556,18 @@
             this.btEditar.TabIndex = 5;
             this.btEditar.Text = "Editar";
             this.btEditar.UseVisualStyleBackColor = false;
-            // 
-            // txtPesquisa
-            // 
-            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisa.Location = new System.Drawing.Point(86, 41);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(382, 28);
-            this.txtPesquisa.TabIndex = 13;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label15.Location = new System.Drawing.Point(18, 44);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(62, 22);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Nome:";
-            // 
-            // btPesquisar
-            // 
-            this.btPesquisar.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btPesquisar.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btPesquisar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btPesquisar.Location = new System.Drawing.Point(498, 35);
-            this.btPesquisar.Name = "btPesquisar";
-            this.btPesquisar.Size = new System.Drawing.Size(154, 42);
-            this.btPesquisar.TabIndex = 6;
-            this.btPesquisar.Text = "Pesquisar";
-            this.btPesquisar.UseVisualStyleBackColor = false;
-            // 
-            // dgvPesqCliente
-            // 
-            this.dgvPesqCliente.AllowUserToAddRows = false;
-            this.dgvPesqCliente.AllowUserToDeleteRows = false;
-            this.dgvPesqCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPesqCliente.Location = new System.Drawing.Point(6, 100);
-            this.dgvPesqCliente.Name = "dgvPesqCliente";
-            this.dgvPesqCliente.ReadOnly = true;
-            this.dgvPesqCliente.RowHeadersWidth = 51;
-            this.dgvPesqCliente.RowTemplate.Height = 24;
-            this.dgvPesqCliente.Size = new System.Drawing.Size(843, 298);
-            this.dgvPesqCliente.TabIndex = 14;
-            // 
-            // txtComplemento
-            // 
-            this.txtComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComplemento.Location = new System.Drawing.Point(678, 311);
-            this.txtComplemento.Name = "txtComplemento";
-            this.txtComplemento.Size = new System.Drawing.Size(162, 28);
-            this.txtComplemento.TabIndex = 27;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label16.Location = new System.Drawing.Point(552, 311);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(120, 22);
-            this.label16.TabIndex = 26;
-            this.label16.Text = "Complemento";
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 654);
+            this.ClientSize = new System.Drawing.Size(917, 654);
             this.Controls.Add(this.btEditar);
             this.Controls.Add(this.btExcluir);
             this.Controls.Add(this.btNovo);
             this.Controls.Add(this.btSalvar);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabCliente);
             this.Controls.Add(this.panel1);
             this.Name = "frmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -569,11 +575,11 @@
             this.Load += new System.EventHandler(this.frmClientes_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabCliente.ResumeLayout(false);
+            this.tabPgDadosPessoais.ResumeLayout(false);
+            this.tabPgDadosPessoais.PerformLayout();
+            this.tabPgConsulta.ResumeLayout(false);
+            this.tabPgConsulta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesqCliente)).EndInit();
             this.ResumeLayout(false);
 
@@ -583,8 +589,8 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tabCliente;
+        private System.Windows.Forms.TabPage tabPgDadosPessoais;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -596,7 +602,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.MaskedTextBox txtCelular;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPgConsulta;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.MaskedTextBox txtRg;
         private System.Windows.Forms.MaskedTextBox txtCpf;
