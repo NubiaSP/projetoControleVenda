@@ -165,6 +165,7 @@ namespace ProjetoControleVendas.br.com.projeto.view
 
             if (dgvPesqFuncionario.Rows.Count == 0 || txtPesquisa.Text == string.Empty)
             {
+                MessageBox.Show("Nem um funcionario encontrado com esse nome");
                 dgvPesqFuncionario.DataSource = dao.listaFuncionario();
 
             }

@@ -129,6 +129,7 @@ namespace ProjetoControleVendas.br.com.projeto.view
 
             if(dgvPesqCliente.Rows.Count == 0 || txtPesquisa.Text == string.Empty)
             {
+                MessageBox.Show("Nem um cliente encontrado com esse nome");
                 dgvPesqCliente.DataSource = dao.listaCliente();
                     
             }

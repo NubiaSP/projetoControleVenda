@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabCliente = new System.Windows.Forms.TabControl();
             this.tabPgDadosPessoais = new System.Windows.Forms.TabPage();
+            this.btnCepPesquisar = new System.Windows.Forms.Button();
             this.txtComplemento = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.cbUf = new System.Windows.Forms.ComboBox();
@@ -69,7 +70,6 @@
             this.btNovo = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
             this.btEditar = new System.Windows.Forms.Button();
-            this.btnCepPesquisar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.tabPgDadosPessoais.SuspendLayout();
@@ -146,6 +146,19 @@
             this.tabPgDadosPessoais.TabIndex = 0;
             this.tabPgDadosPessoais.Text = "Dados Pessoais";
             this.tabPgDadosPessoais.UseVisualStyleBackColor = true;
+            // 
+            // btnCepPesquisar
+            // 
+            this.btnCepPesquisar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnCepPesquisar.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCepPesquisar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnCepPesquisar.Location = new System.Drawing.Point(261, 252);
+            this.btnCepPesquisar.Name = "btnCepPesquisar";
+            this.btnCepPesquisar.Size = new System.Drawing.Size(128, 33);
+            this.btnCepPesquisar.TabIndex = 6;
+            this.btnCepPesquisar.Text = "Pesquisar";
+            this.btnCepPesquisar.UseVisualStyleBackColor = false;
+            this.btnCepPesquisar.Click += new System.EventHandler(this.btnCepPesquisar_Click);
             // 
             // txtComplemento
             // 
@@ -560,19 +573,6 @@
             this.btEditar.Text = "Editar";
             this.btEditar.UseVisualStyleBackColor = false;
             this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
-            // 
-            // btnCepPesquisar
-            // 
-            this.btnCepPesquisar.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnCepPesquisar.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCepPesquisar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCepPesquisar.Location = new System.Drawing.Point(261, 252);
-            this.btnCepPesquisar.Name = "btnCepPesquisar";
-            this.btnCepPesquisar.Size = new System.Drawing.Size(128, 33);
-            this.btnCepPesquisar.TabIndex = 6;
-            this.btnCepPesquisar.Text = "Pesquisar";
-            this.btnCepPesquisar.UseVisualStyleBackColor = false;
-            this.btnCepPesquisar.Click += new System.EventHandler(this.btnCepPesquisar_Click);
             // 
             // frmClientes
             // 

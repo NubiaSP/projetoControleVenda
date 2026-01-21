@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabFuncionario = new System.Windows.Forms.TabControl();
+            this.tabFornecedor = new System.Windows.Forms.TabControl();
             this.tabPgDadosPessoais = new System.Windows.Forms.TabPage();
             this.btnCepPesquisar = new System.Windows.Forms.Button();
             this.txtComplemento = new System.Windows.Forms.TextBox();
@@ -69,7 +69,7 @@
             this.btNovo = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.tabFuncionario.SuspendLayout();
+            this.tabFornecedor.SuspendLayout();
             this.tabPgDadosPessoais.SuspendLayout();
             this.tabPgConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesqFornecedor)).BeginInit();
@@ -98,15 +98,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Cadastro de Fornecedor";
             // 
-            // tabFuncionario
+            // tabFornecedor
             // 
-            this.tabFuncionario.Controls.Add(this.tabPgDadosPessoais);
-            this.tabFuncionario.Controls.Add(this.tabPgConsulta);
-            this.tabFuncionario.Location = new System.Drawing.Point(12, 162);
-            this.tabFuncionario.Name = "tabFuncionario";
-            this.tabFuncionario.SelectedIndex = 0;
-            this.tabFuncionario.Size = new System.Drawing.Size(1045, 493);
-            this.tabFuncionario.TabIndex = 3;
+            this.tabFornecedor.Controls.Add(this.tabPgDadosPessoais);
+            this.tabFornecedor.Controls.Add(this.tabPgConsulta);
+            this.tabFornecedor.Location = new System.Drawing.Point(12, 162);
+            this.tabFornecedor.Name = "tabFornecedor";
+            this.tabFornecedor.SelectedIndex = 0;
+            this.tabFornecedor.Size = new System.Drawing.Size(1045, 493);
+            this.tabFornecedor.TabIndex = 3;
             // 
             // tabPgDadosPessoais
             // 
@@ -463,6 +463,7 @@
             this.dgvPesqFornecedor.RowTemplate.Height = 24;
             this.dgvPesqFornecedor.Size = new System.Drawing.Size(1025, 344);
             this.dgvPesqFornecedor.TabIndex = 14;
+            this.dgvPesqFornecedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPesqFornecedor_CellClick);
             // 
             // btPesquisar
             // 
@@ -475,6 +476,7 @@
             this.btPesquisar.TabIndex = 6;
             this.btPesquisar.Text = "Pesquisar";
             this.btPesquisar.UseVisualStyleBackColor = false;
+            this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
             // 
             // txtPesquisa
             // 
@@ -483,6 +485,7 @@
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(382, 28);
             this.txtPesquisa.TabIndex = 13;
+            this.txtPesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisa_KeyPress);
             // 
             // label15
             // 
@@ -506,6 +509,7 @@
             this.btEditar.TabIndex = 13;
             this.btEditar.Text = "Editar";
             this.btEditar.UseVisualStyleBackColor = false;
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
             // btExcluir
             // 
@@ -518,6 +522,7 @@
             this.btExcluir.TabIndex = 12;
             this.btExcluir.Text = "Excluir";
             this.btExcluir.UseVisualStyleBackColor = false;
+            this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
             // 
             // btNovo
             // 
@@ -530,6 +535,7 @@
             this.btNovo.TabIndex = 11;
             this.btNovo.Text = "Novo";
             this.btNovo.UseVisualStyleBackColor = false;
+            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
             // btSalvar
             // 
@@ -542,6 +548,7 @@
             this.btSalvar.TabIndex = 10;
             this.btSalvar.Text = "Salvar";
             this.btSalvar.UseVisualStyleBackColor = false;
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // FrmFornecedor
             // 
@@ -552,7 +559,7 @@
             this.Controls.Add(this.btExcluir);
             this.Controls.Add(this.btNovo);
             this.Controls.Add(this.btSalvar);
-            this.Controls.Add(this.tabFuncionario);
+            this.Controls.Add(this.tabFornecedor);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -561,7 +568,7 @@
             this.Load += new System.EventHandler(this.FrmFornecedor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabFuncionario.ResumeLayout(false);
+            this.tabFornecedor.ResumeLayout(false);
             this.tabPgDadosPessoais.ResumeLayout(false);
             this.tabPgDadosPessoais.PerformLayout();
             this.tabPgConsulta.ResumeLayout(false);
@@ -575,7 +582,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabFuncionario;
+        private System.Windows.Forms.TabControl tabFornecedor;
         private System.Windows.Forms.TabPage tabPgDadosPessoais;
         private System.Windows.Forms.Button btnCepPesquisar;
         private System.Windows.Forms.TextBox txtComplemento;
