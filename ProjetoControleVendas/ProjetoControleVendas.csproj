@@ -99,7 +99,9 @@
     <Compile Include="br.com.projeto.dao\ClienteDao.cs" />
     <Compile Include="br.com.projeto.dao\FornecedorDao.cs" />
     <Compile Include="br.com.projeto.dao\funcionarioDao.cs" />
+    <Compile Include="br.com.projeto.dao\itemVendaDao.cs" />
     <Compile Include="br.com.projeto.dao\ProdutoDao.cs" />
+    <Compile Include="br.com.projeto.dao\VendaDao.cs" />
     <Compile Include="br.com.projeto.model\cliente.cs" />
     <Compile Include="br.com.projeto.model\Fornecedor.cs" />
     <Compile Include="br.com.projeto.model\Funcionario.cs" />
@@ -113,6 +115,12 @@
     <Compile Include="br.com.projeto.view\frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="br.com.projeto.view\FrmDetalheVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmDetalheVenda.Designer.cs">
+      <DependentUpon>FrmDetalheVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="br.com.projeto.view\FrmFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,11 +133,35 @@
     <Compile Include="br.com.projeto.view\FrmFuncionario.Designer.cs">
       <DependentUpon>FrmFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="br.com.projeto.view\FrmHistoricoVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmHistoricoVenda.Designer.cs">
+      <DependentUpon>FrmHistoricoVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmMenuInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmMenuInicial.Designer.cs">
+      <DependentUpon>FrmMenuInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmPagamento.Designer.cs">
+      <DependentUpon>FrmPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="br.com.projeto.view\FrmProduto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="br.com.projeto.view\FrmProduto.Designer.cs">
       <DependentUpon>FrmProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmTelaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmTelaLogin.Designer.cs">
+      <DependentUpon>FrmTelaLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="br.com.projeto.view\FrmVendas.cs">
       <SubType>Form</SubType>
@@ -148,14 +180,29 @@
     <EmbeddedResource Include="br.com.projeto.view\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmDetalheVenda.resx">
+      <DependentUpon>FrmDetalheVenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="br.com.projeto.view\FrmFornecedor.resx">
       <DependentUpon>FrmFornecedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.projeto.view\FrmFuncionario.resx">
       <DependentUpon>FrmFuncionario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmHistoricoVenda.resx">
+      <DependentUpon>FrmHistoricoVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmMenuInicial.resx">
+      <DependentUpon>FrmMenuInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmPagamento.resx">
+      <DependentUpon>FrmPagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="br.com.projeto.view\FrmProduto.resx">
       <DependentUpon>FrmProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmTelaLogin.resx">
+      <DependentUpon>FrmTelaLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.projeto.view\FrmVendas.resx">
       <DependentUpon>FrmVendas.cs</DependentUpon>
@@ -171,6 +218,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -186,6 +234,56 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\e9502b25-5dd8-494a-aec7-dc5a2f815e74.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dinheiro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salvar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adicionar-ao-carrinho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagamento-seguro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dolly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excluir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configuracao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario-ativo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_99331034-stock-photo-business-background-on-white-table.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

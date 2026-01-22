@@ -46,7 +46,15 @@ namespace ProjetoControleVendas.br.com.projeto.view
             if(e.KeyChar == 13)
             {
                 clientes = cdao.retornandoClienteCpf(txtCpf.Text);
-                txtNome.Text = clientes.nome;
+                if(clientes != null)
+                {
+                    txtNome.Text = clientes.nome;
+                }
+                else
+                {
+                    txtCpf.Clear();
+                    txtCpf.Focus();
+                }
             }
         }
 
@@ -61,8 +69,17 @@ namespace ProjetoControleVendas.br.com.projeto.view
             {
                 prod = pdao.retornandoProdutoPoCodigo(int.Parse(txtCodigo1.Text));
 
-                txtDescricao.Text = prod.descricao;
-                txtPreco.Text = prod.preco.ToString();
+                if (prod != null)
+                {
+                    txtDescricao.Text = prod.descricao;
+                    txtPreco.Text = prod.preco.ToString();
+                }
+                else
+                {
+                    txtCodigo1.Clear();
+                    txtCodigo1.Focus();
+                }
+              
             }
         }
 
@@ -73,26 +90,33 @@ namespace ProjetoControleVendas.br.com.projeto.view
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            qtd = int.Parse(txtEstoque.Text);
-            preco = decimal.Parse(txtPreco.Text);
+            try
+            {
+                qtd = int.Parse(txtEstoque.Text);
+                preco = decimal.Parse(txtPreco.Text);
 
-            subtotal = qtd * preco;
+                subtotal = qtd * preco;
 
-            total += subtotal;
+                total += subtotal;
 
-            carrinho.Rows.Add(int.Parse(txtCodigo1.Text), txtDescricao.Text, qtd, preco, subtotal);
+                carrinho.Rows.Add(int.Parse(txtCodigo1.Text), txtDescricao.Text, qtd, preco, subtotal);
 
-            txtTotal.Text = total.ToString();
+                txtTotal.Text = total.ToString();
 
 
 
-            txtDescricao.Clear();
-            txtPreco.Clear();
-            txtEstoque.Clear();
-            txtCodigo1.Clear();
+                txtDescricao.Clear();
+                txtPreco.Clear();
+                txtEstoque.Clear();
+                txtCodigo1.Clear();
 
-            txtCodigo1.Focus();
+                txtCodigo1.Focus();
 
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Digite o Código do preoduto!");
+            }
 
 
         }
@@ -114,8 +138,23 @@ namespace ProjetoControleVendas.br.com.projeto.view
             txtTotal.Text = total.ToString();
         }
 
+        private void btPagamento_Click(object sender, EventArgs e)
+        {
+            //botao Pagamento
+            DateTime dataAtual = DateTime.Parse(txtData.Text);
+            FrmPagamento tela = new FrmPagamento(dataAtual,clientes,carrinho);
+
+            //passando o total para a tela de pagamento 
+            tela.txtTotal.Text = total.ToString();
+
+            tela.ShowDialog();
+
+        }
+
         private void FrmVendas_Load(object sender, EventArgs e)
         {
+            // pegando a data atual
+            txtData.Text = DateTime.Now.ToShortDateString();
 
         }
     }

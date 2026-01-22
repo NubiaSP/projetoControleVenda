@@ -33,7 +33,7 @@ namespace ProjetoControleVendas.br.com.projeto.dao
                                 cep,endereco,numero,complemento,bairro,cidade,estado)
                                 VALUES(@nome, @rg, @cpf, @email,@senha,@cargo,@nivel_acesso,@telefone, @celular,
                                 @cep, @endereco, @numero, @complemento, @bairro, @cidade, @estado)";
-               
+
                 //segundo paasso e organizar o cmd sql
                 MySqlCommand executacmd = new MySqlCommand(sql, conexao);
                 executacmd.Parameters.AddWithValue("@nome", obj.nome);
@@ -64,7 +64,7 @@ namespace ProjetoControleVendas.br.com.projeto.dao
             }
             catch (Exception erro)
             {
-                MessageBox.Show($"Aconteceu um erro{erro}");  
+                MessageBox.Show($"Aconteceu um erro{erro}");
                 throw;
             }
         }
@@ -267,6 +267,51 @@ namespace ProjetoControleVendas.br.com.projeto.dao
                 return null;
             }
 
+        }
+
+        #endregion
+
+
+        #region EfetuaLogin
+
+        public bool EfetuarLogin(string email, string senha)
+        {
+            try
+            {
+                //1 passo creiar o comando sql
+                string sql = @"SELECT * FROM bdvendas.tb_funcionarios
+                                WHERE email = @email AND senha = @senha;";
+
+                //segundo paasso e organizar o cmd sql
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+
+                executacmd.Parameters.AddWithValue("@email", email);
+                executacmd.Parameters.AddWithValue("@senha", senha);
+
+                conexao.Open();
+                MySqlDataReader reader = executacmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    MessageBox.Show("Login Realizado com sucesso!");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Senha ou Email incorreto!");
+
+                    return false;
+                }
+
+              
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao execultar o comando SQL:{erro}");
+
+                return false;
+            }
         }
 
         #endregion

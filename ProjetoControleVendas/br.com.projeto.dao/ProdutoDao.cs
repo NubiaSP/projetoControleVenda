@@ -300,5 +300,73 @@ namespace ProjetoControleVendas.br.com.projeto.dao
 
 
         #endregion
+
+        #region Metodo que baixa estoque
+
+        public void baixaEstoque(int idProduto, int qtdEstoque)
+        {
+            try
+            {
+                //1 paaso - comando SQL
+
+                string sql = @"UPDATE tb_produtos SET qtd_estoque=@qtd WHERE id=@id";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@qtd", qtdEstoque);
+                executacmd.Parameters.AddWithValue("@id", idProduto);
+
+
+                // 3 passo - aabri a conexao e execultar ocomando sql
+
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show($"Erro ao execultar o comando SQL:{erro}");
+
+                conexao.Close();
+            }
+        }
+
+        #endregion
+
+
+
+        #region Metodo que retorna o estoque atual de um produto
+        public int retornaEstoqueAtual(int idProduto)
+        {
+            try
+            {
+                string sql = @"SELECT qtd_estoque FROM tb_produtos WHERE id=@id";
+                int qtdEstoque = 0;
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@id", idProduto);
+
+                conexao.Open();
+
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read())
+                {
+                    qtdEstoque = rs.GetInt32("qtd_estoque");
+                    conexao.Close();
+                }
+                return qtdEstoque;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Aconteceu um Erro:{erro}");
+                return 0;
+            }
+        }
+
+
+        #endregion
     }
 }

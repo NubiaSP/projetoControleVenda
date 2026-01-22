@@ -38,6 +38,7 @@
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btRemover = new System.Windows.Forms.Button();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.txtEstoque = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btPagamento = new System.Windows.Forms.Button();
-            this.btRemover = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -176,6 +176,19 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
+            // btRemover
+            // 
+            this.btRemover.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btRemover.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRemover.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btRemover.Location = new System.Drawing.Point(282, 214);
+            this.btRemover.Name = "btRemover";
+            this.btRemover.Size = new System.Drawing.Size(189, 53);
+            this.btRemover.TabIndex = 32;
+            this.btRemover.Text = "Remover item";
+            this.btRemover.UseVisualStyleBackColor = false;
+            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
+            // 
             // btAdicionar
             // 
             this.btAdicionar.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -277,7 +290,7 @@
             this.dgvProdutosVnd.ReadOnly = true;
             this.dgvProdutosVnd.RowHeadersWidth = 51;
             this.dgvProdutosVnd.RowTemplate.Height = 24;
-            this.dgvProdutosVnd.Size = new System.Drawing.Size(559, 500);
+            this.dgvProdutosVnd.Size = new System.Drawing.Size(559, 399);
             this.dgvProdutosVnd.TabIndex = 4;
             this.dgvProdutosVnd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutosVnd_CellContentClick);
             // 
@@ -286,7 +299,7 @@
             this.groupBox3.Controls.Add(this.txtTotal);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(573, 678);
+            this.groupBox3.Location = new System.Drawing.Point(573, 579);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(559, 96);
             this.groupBox3.TabIndex = 17;
@@ -316,7 +329,7 @@
             this.btCancelar.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btCancelar.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btCancelar.Location = new System.Drawing.Point(867, 798);
+            this.btCancelar.Location = new System.Drawing.Point(868, 692);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(189, 53);
             this.btCancelar.TabIndex = 33;
@@ -328,31 +341,19 @@
             this.btPagamento.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btPagamento.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPagamento.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btPagamento.Location = new System.Drawing.Point(655, 798);
+            this.btPagamento.Location = new System.Drawing.Point(656, 692);
             this.btPagamento.Name = "btPagamento";
             this.btPagamento.Size = new System.Drawing.Size(178, 53);
             this.btPagamento.TabIndex = 32;
             this.btPagamento.Text = "Pagamento";
             this.btPagamento.UseVisualStyleBackColor = false;
-            // 
-            // btRemover
-            // 
-            this.btRemover.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btRemover.Font = new System.Drawing.Font("Microsoft Tai Le", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRemover.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btRemover.Location = new System.Drawing.Point(282, 214);
-            this.btRemover.Name = "btRemover";
-            this.btRemover.Size = new System.Drawing.Size(189, 53);
-            this.btRemover.TabIndex = 32;
-            this.btRemover.Text = "Remover item";
-            this.btRemover.UseVisualStyleBackColor = false;
-            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
+            this.btPagamento.Click += new System.EventHandler(this.btPagamento_Click);
             // 
             // FrmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 876);
+            this.ClientSize = new System.Drawing.Size(1155, 762);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btPagamento);
             this.Controls.Add(this.groupBox3);
