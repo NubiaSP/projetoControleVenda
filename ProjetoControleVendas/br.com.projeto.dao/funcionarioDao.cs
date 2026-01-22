@@ -2,6 +2,7 @@
 using Mysqlx.Crud;
 using ProjetoControleVendas.br.com.projeto.conexao;
 using ProjetoControleVendas.br.com.projeto.model;
+using ProjetoControleVendas.br.com.projeto.view;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -293,7 +294,11 @@ namespace ProjetoControleVendas.br.com.projeto.dao
 
                 if (reader.Read())
                 {
-                    MessageBox.Show("Login Realizado com sucesso!");
+                    string nivel = reader.GetString("nivel_acesso");
+
+                    MessageBox.Show($"Login Realizado com  acesso {nivel}!");
+                    FrmMenuInicial menu = new FrmMenuInicial();
+                    menu.Show();
                     return true;
                 }
                 else

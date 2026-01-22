@@ -33,8 +33,6 @@ namespace ProjetoControleVendas.br.com.projeto.view
 
             if (dao.EfetuarLogin(email,senha))
             {
-                FrmMenuInicial menu = new FrmMenuInicial();
-                menu.Show();
                 this.Hide();
             }
         }
